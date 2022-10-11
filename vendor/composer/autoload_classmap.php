@@ -6,7 +6,9 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Actions\\CreateItemAction' => $baseDir . '/app/Actions/CreateItemAction.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\DataTransferObjects\\ItemData' => $baseDir . '/app/DataTransferObjects/ItemData.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\ItemController' => $baseDir . '/app/Http/Controllers/ItemController.php',
@@ -19,6 +21,7 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\CreateItemRequest' => $baseDir . '/app/Http/Requests/CreateItemRequest.php',
     'App\\Models\\Item' => $baseDir . '/app/Models/Item.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
@@ -26,6 +29,8 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Repositories\\Interfaces\\ItemRepositoryInterface' => $baseDir . '/app/Repositories/Interfaces/ItemRepositoryInterface.php',
+    'App\\Repositories\\ItemRepository' => $baseDir . '/app/Repositories/ItemRepository.php',
     'App\\Serializers\\AbstractSerializer' => $baseDir . '/app/Serializers/AbstractSerializer.php',
     'App\\Serializers\\ItemSerializer' => $baseDir . '/app/Serializers/ItemSerializer.php',
     'App\\Serializers\\ItemsSerializer' => $baseDir . '/app/Serializers/ItemsSerializer.php',
