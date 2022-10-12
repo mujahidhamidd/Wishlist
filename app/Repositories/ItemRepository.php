@@ -45,7 +45,9 @@ class ItemRepository implements ItemRepositoryInterface
             ),
             'www.',
             -1
-          ) as website , SUM(price) as total_price",))->groupBy('website')->get()->first()?->website;
+          ) as website , SUM(price) as total_price",))
+          ->orderBy('total_price' , 'desc')
+          ->groupBy('website')->get()->first()?->website;
     }
 
     public function getTotalPriceofItemsAdded(Carbon $from, Carbon $to): float

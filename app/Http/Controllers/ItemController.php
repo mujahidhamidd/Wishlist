@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use App\Serializers\ItemSerializer;
 use App\Http\Resources\ItemResource;
-use App\Serializers\ItemsSerializer;
 use App\DataTransferObjects\ItemData;
 use App\Actions\Items\CreateItemAction;
 use App\Actions\Items\UpdateItemAction;

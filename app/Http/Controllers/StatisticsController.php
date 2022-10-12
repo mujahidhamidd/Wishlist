@@ -20,6 +20,7 @@ class StatisticsController extends Controller
 
     public function index(StatisticsRequest $request)
     {
+        // if no type provided return all stat
         $statisticsData = new StatisticsData(StatisticsType::tryFrom($request->type));
         return JsonResponse::create(['items' => ($this->calculateStatistics)($statisticsData)]);
     }

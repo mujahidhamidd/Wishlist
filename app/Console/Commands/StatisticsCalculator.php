@@ -41,6 +41,7 @@ class StatisticsCalculator extends Command
     public function handle()
     {
         $statisticsData = new StatisticsData(StatisticsType::tryFrom($this->option('type')));
+
         $statisticsData = ($this->calculateStatistics)($statisticsData);
         // output for terminal
         $statisticsData->each(

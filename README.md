@@ -28,13 +28,19 @@ statistic should be displayed.
 Please write your answers to following questions.
 
 > **Please briefly explain your implementation of the new feature**  
->  
-> _..._
+>  For Statistics feature i created a small action for each metric
+>  this approach guarantee that each standalone metric can be implemented and tested individually
+>  then i used the enum to make our Statistics extendable we can add other metrics without touching the api or console command
+> i tried to implement a common interface for metrics but the returned data might differ depending on each metric
 
 > **For the refactoring, would you change something else if you had more time?**  
->  
-> _..._
+>  For the refactoring part i moved most of the bussins logic away from the controllers if i have more time i will study and make sure the abstraction is not overkill , Implement DDD , for now i have just one domain i thought it's not      needed yet
+> ensure the reusability of the code throughout the codebase
+> I will develop A common Response / Request Convention to facilitate the integration with others , 
+> Writing more test case to make sure everything is covered
 
+
+## Thank you for including the test it was very helpful during the refactoring
 ## Running the project
 This project requires a database to run. For the server part, you can use `php artisan serve`
 or whatever you're most comfortable with.
