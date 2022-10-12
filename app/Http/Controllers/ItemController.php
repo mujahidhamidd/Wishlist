@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
-use App\Actions\CreateItemAction;
-use App\Actions\UpdateItemAction;
 use Illuminate\Http\JsonResponse;
 use App\Serializers\ItemSerializer;
 use App\Http\Resources\ItemResource;
 use App\Serializers\ItemsSerializer;
 use App\DataTransferObjects\ItemData;
+use App\Actions\Items\CreateItemAction;
+use App\Actions\Items\UpdateItemAction;
 use App\Http\Requests\CreateItemRequest;
 use League\CommonMark\CommonMarkConverter;
 use App\Repositories\Interfaces\ItemRepositoryInterface;
@@ -38,8 +38,7 @@ class ItemController extends Controller
             description: parseMarkdown($request->description)
         );
         $item = ($createItemAction)($itemData);
-        $serializer = new ItemSerializer($item);
-        return new JsonResponse(['item' => $serializer->getData()]);
+        return  new JsonResponse(['item' => new  ItemResource($item)]);
     }
 
     public function show($id)
@@ -49,9 +48,8 @@ class ItemController extends Controller
 
     public function update(CreateItemRequest $request, UpdateItemAction $updateItemAction, int $id): JsonResponse
     {
-        $item  =  $this->itemRepository->find((int)$id);
         $itemData = new ItemData(
-            id: $item->id,
+            id: (int) $id,
             name: $request->name,
             price: $request->price,
             url: $request->url,
@@ -59,6 +57,7 @@ class ItemController extends Controller
         );
         $item = ($updateItemAction)($itemData);
 
+        //TODO create common trait to unify responses
         return  new JsonResponse(['item' => new  ItemResource($item)]);
     }
 }
