@@ -28,7 +28,7 @@ class ItemRepository implements ItemRepositoryInterface
 
     public function avg(string $column): float
     {
-        return Item::avg($column);
+        return Item::avg($column) ?? 0;
     }
 
     public function getWebsiteWithTheHighestTotal(): string | null

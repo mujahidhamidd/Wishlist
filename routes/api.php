@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\StatisticsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/items', [ItemController::class, 'index']);
-Route::post('/items', [ItemController::class, 'store']);
-Route::get('/items/{id}', [ItemController::class, 'show']);
-Route::put('/items/{id}', [ItemController::class, 'update']);
+
+
+Route::resource('items', ItemController::class);
+
+
+Route::get('/statistics', [StatisticsController::class, 'index']);

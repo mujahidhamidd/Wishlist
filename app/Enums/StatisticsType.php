@@ -7,12 +7,12 @@ use App\Actions\Statistics\ActionAveragePriceOfItem;
 use App\Actions\Statistics\ActionTotalPriceofItemsAdded;
 use App\Actions\Statistics\ActionWebsiteWithTheHighestTotal;
 
-enum StatisticsType
+enum StatisticsType: string
 {
-    case total_items_count;
-    case average_price_of_an_item;
-    case the_website_with_the_highest_total_price;
-    case total_price_of_items_added_this_month;
+    case total_items_count = 'total_items_count';
+    case average_price_of_an_item = 'average_price_of_an_item';
+    case the_website_with_the_highest_total_price = 'the_website_with_the_highest_total_price';
+    case total_price_of_items_added_this_month = 'total_price_of_items_added_this_month';
 
 
     public function execute()
