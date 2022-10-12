@@ -4,19 +4,20 @@ namespace App\Actions\Statistics;
 
 use App\Enums\StatisticsType;
 use Illuminate\Support\Collection;
+use App\DataTransferObjects\StatisticsData;
 
 class CalculateStatistics
 {
 
-    public function __invoke(StatisticsType $statisticsType = null): Collection
+    public function __invoke(StatisticsData $statisticsDto = null): Collection
     {
 
         $statisticsData = collect();
 
-        if ($statisticsType) {
+        if ($statisticsDto->type) {
             $statisticsData->push([
-                'name' => $statisticsType->name,
-                'data' => $statisticsType->execute()
+                'name' => $statisticsDto->type->name,
+                'data' => $statisticsDto->type->execute()
             ]);
             return  $statisticsData;
         }
